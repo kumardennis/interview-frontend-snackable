@@ -1,6 +1,8 @@
 import React from "react";
 import Router from "next/router";
 
+import "../styles/main.css";
+
 const Index = () => <div />;
 
 Index.getInitialProps = async ({ res, req }) => {

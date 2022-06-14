@@ -15,7 +15,8 @@ export default ({ files }) => (
     <tbody>
       {files.map(file => {
         return (
-          <Link key={file.fileId} href={`/files/${file.fileId}`}>
+          <Link key={file.fileId} passHref href={`/files/${file.fileId}`}>
+            <a>
             <tr className="hover:bg-gray-100 cursor-pointer">
               <td className="border border-gray-400 px-4 py-2">
                 {file.fileId}
@@ -24,6 +25,7 @@ export default ({ files }) => (
                 {file.processingStatus}
               </td>
             </tr>
+            </a>
           </Link>
         );
       })}
