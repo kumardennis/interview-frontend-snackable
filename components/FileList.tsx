@@ -1,6 +1,11 @@
 import Link from "next/link";
+import { AllFileModel } from "../models/AllFileModel";
 
-export default ({ files }) => (
+interface PropTypes {
+  files: AllFileModel[]
+}
+
+export default ({ files }: PropTypes) => (
   <table className="border-collapse border-2 border-gray-500">
     <thead>
       <tr>
@@ -12,11 +17,10 @@ export default ({ files }) => (
         </th>
       </tr>
     </thead>
-    <tbody>
-      {files.map(file => {
-        return (
+    {files.map(file => 
+         (
           <Link key={file.fileId} passHref href={`/files/${file.fileId}`}>
-            <a>
+        
             <tr className="hover:bg-gray-100 cursor-pointer">
               <td className="border border-gray-400 px-4 py-2">
                 {file.fileId}
@@ -25,10 +29,12 @@ export default ({ files }) => (
                 {file.processingStatus}
               </td>
             </tr>
-            </a>
+         
           </Link>
-        );
-      })}
+        )
+      )}
+    <tbody>
+
     </tbody>
   </table>
 );
